@@ -13,35 +13,50 @@
         #general {
             position: absolute;
             width: auto;
-            font font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
         #header { 
-        background-color: rgb(137, 49, 115);
+            font-weight: 1000;
+            font-family: cursive;
+            background-color: rgb(37, 164, 121);
             color: white;
             width: 100%;
-            height: 40px;
-            float: left}
-            #main{
-            background-color: rgb(240, 206, 206);
+            height: 100px;
+            float: left;
+        }
+        #main{
+            background-color: rgb(252, 251, 251);
             width: 100%;
             height: 620px;
             float:left
         }
         #menu{
-            background-color: rgb(45, 162, 149);
-            width: 30%;
-            height: 620px;
+            background-color: rgb(209, 239, 211);
+            width: 20%;
+            height: 1300px;
             float:left
+            
         }
         #footer{
-            background-color:rgb(137, 49, 115);
+            background-color:rgb(37, 164, 121);
             color: white;
-            width: 10%;
-            height: 60px;
+            width: 100%;
+            height: 105px;
             float:left
         }    
-
-        
+        #lista-playas{ 
+            color: rgb(27, 3, 63); 
+        }
+        #pie-pagina {
+            color: hsl(60, 20%, 99%);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }  
+        #parrafo-descripcion {
+            color: rgb(239, 125, 125);
+            font-weight: 1000;
+           
+        }
+    
     </style>
 
 </head>
@@ -50,22 +65,17 @@
     </div>    
         <div>
             <h1 id="header">
-               Mejores Playas Costa Rica
+        Mejores Playas de Costa Rica
             </h1>
         </div>
 
     <div id="main">
-        <div>
-            <iframe width="960" height="715" src="https://www.youtube.com/embed/1jil9ac64g0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <div  id="menu"> 
             <h2 id="lista-playas">
                 Lista de Playas
             </h2>
-            <p id="parrafo-descripcion">
-                Los editores destacan al país como un destino con impresionante bosques lluviosos y fauna, así como por sus playas para practicar surf o simplemente disfrutar del sol.
-            </p>
-        </div>    
-        <div  id="menu">    
-            <ol>
+            <ul>
                 <li>
                     <a href="conchal.html">Playa Conchal</a>
                 </li>
@@ -81,13 +91,29 @@
                 <li>
                     <a href="puntauva.html">Playa Punta Uva</a>
                 </li>
-            </ol>
-        </div>    
-        <img src="Img/pura-vida.jpg" alt="Pura vida costa rica">
+                <img src="" alt="">
+            </ul>
+        </div>  
+
+        <div>
+            <img src="Img/Si vas a tirar la Toalla que sea en la playa.jpeg" alt="fotoplaya" height="500" width="400">
+            <iframe width="650" height="400" src="https://www.youtube.com/embed/1jil9ac64g0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <p id="parrafo-descripcion">
+                Los editores destacan al país como un destino con impresionante bosques lluviosos y fauna, así como por sus playas para practicar surf o simplemente disfrutar del sol.
+            </p>
+        </div>   
+         
+        <img src="Img/pura-vida.jpg" alt="Pura vida costa rica" width="300" height="150">
+        <img src="Img/Ubicacion.png" alt="ubicacion" width="100" height="100">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4042248.3350294204!2d-87.05319745901522!3d8.351568535582848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f92e56221acc925%3A0x6254f72535819a2b!2sCosta%20Rica!5e0!3m2!1ses!2scr!4v1686777453695!5m2!1ses!2scr" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div id="footer">
+            <p id="pie-pagina">
+            Costa Rica Pura Vida
+            </p>
+            <p>Facebook @xxxxxxx Instagran @xxxxx</p>
+            <p>Contac</p>
+        </div>
     </div>
 
-    <div id="footer">
-        
-    </div>
 </body>
 </html>
