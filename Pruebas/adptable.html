@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diseno-adaptable</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .general {
+            background-color: darkorange;
+            min-height: 100vh;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        body {
+            margin: 0;
+        }        
+
+        .header {
+            padding: 8px;
+            background-color: #3A7CA5;
+            color: #D9DCD6;
+            
+        }
+        .main {
+            display: flex;
+            flex-grow: 1;
+            /* dentro del elemento */
+            padding: 40px;
+            /* fuera del elemento */
+            margin: 0px;
+            color: #16425B; 
+            background: darkblue;            
+        }
+        .menu {
+            padding-right: 8px;
+            background: white
+        }
+
+        .dashboard {
+            flex-grow: 1;
+            background-color: rgb(237, 43, 17);
+        }   
+        .footer {   
+            padding: 8px;         
+            width: 100%;
+            background-color: #3A7CA5;
+            color: #D9DCD6;
+        }
+
+        .color-boton {
+            color: #81C3D7;
+        }
+        
+        .flex {
+            /* activar flex al elemento (tag) padre (parent or ancester)*/
+            display: flex;
+            /* espacio entre los elementos (tag) */
+            gap: 20px;
+            /* que no se salga de la pagina, mantega en el espacio de la hoja continue en la siguiente linea */
+            flex-wrap: nowrap;
+            /* orientacion column-vertical o row-horizontal */
+            flex-direction: column-reverse;
+            /* hacer en proporcion el tamano de los hijos, tambien me permite que crezcan en proporcion 
+            ejemplo 10-10-10 o 10-20-10 a quiene se los asgine en la clase*/
+            flex-grow: 1;
+            /* justificar eje principal */
+            justify-content: start;
+            /* justificar eje cruzado */
+            align-items: center;
+            background-color: black;
+            height: 50px;
+            overflow-y: auto;
+        }
+
+        /* Herede los colores del papa, porque es un link y el navegador le cambia el color */
+        a {
+            color: inherit;
+        }
+
+        .bg-green {
+            background-color: rgb(18, 19, 18);
+        }
+
+        .hijo {
+            background-color: red;
+            color: white;
+            margin: 0px;
+        }
+
+        .quitar-vineta {
+            list-style: none;
+            margin: 0px;
+        }
+    </style>
+</head>
+    <body>
+        <div class="general">
+            <div class="header">
+                <h1>Consultoria Negocios</h1>
+            </div>
+
+            <div class="main">
+                <div class="menu">
+                    <ul class="quitar-vineta">
+                        <li>Servicios</li>
+                        <li>Contactame</li>
+                        <li>Testimonio</li>
+                    </ul>
+                </div>
+                <div class="dashboard">
+                    <h2>Hagamos que tu negocio tenga exito</h2>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>Costa Rica</p>
+            </div>  
+        </div>        
+
+        <!-- <div style="background-color: black; width: 100px; height: 100px;">
+            <div style="background-color: red; width: 75%; height: 75%;">
+                <div style="background-color: rgb(19, 75, 29); height: 50px; width: 50px;"></div>
+            </div>
+        </div> -->
+    </body>
+</html>
+
