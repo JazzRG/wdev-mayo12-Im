@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestion Negocios</title>
     <style>
         * {
-            box-sizing: border-box;
-            
+            box-sizing: border-box;            
         }
 
         
@@ -16,7 +15,6 @@
             flex-direction: column;
             min-height: 100vh;
             background-color: aqua;
-
         }
 
         .header {
@@ -46,9 +44,8 @@
             flex-grow: 1;
             margin: 0px;
             padding: 0px;
-            background-color: beige;
+            background-color: rgba(255, 255, 255, 0.8);
             color:#6E0E0A;
-
         }
 
         .imagen {
@@ -61,7 +58,6 @@
         .dashboard {
             text-align: center; 
             flex-grow: 2;
-
         } 
 
         .footer {
@@ -100,6 +96,13 @@
         .video-index {
             padding: 10%;
         }
+        .fondo{
+            display: flex;
+            flex-grow: 1;
+            background-image: url(imagen/general.jpg);
+            background-size: contain;
+            padding: 40px;
+        }
     </style>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -119,32 +122,33 @@
             
         </div>
 
-        <div class="main">
+        <div class="fondo">
+            <div class="main">
 
-            <div class="dashboard">
-                <h1 class="slogan" >Hagamos que tu negocio tenga exito</h1>
-                <div class="imagen">
-                    <a href="servicios.html">
-                        <img width="250" height="250" src="imagen/Premium Vector _ Search for new ideas, meeting and brainstorming_ business concept vector illustration.jpg" alt="Servicios">
-                        <h3>Nuestros Servicios</h3>
-                    </a>
-                    <a href="tips-negocios.html">
-                        <img width="250" height="250" src="imagen/Felices empleados jóvenes que se apoyan y se ayudan mutuamente _ Vector Premium.jpg" alt="Tips Negocios">
-                        <h3>Tips para Negocios</h3>
-                    </a>
-                    <a href="comentarios.html">
-                        <img width="250" height="250" src="imagen/Concepto móvil de marketing en redes sociales _ Vector Premium.jpg" alt="Comentarios">
-                        <h3>Comentarios</h3>
-                    </a>
-                </div>
-                    <div class="video-index">
-                        <iframe width="460" height="315" src="https://www.youtube.com/embed/TV7Dj8lch4k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="dashboard">
+                    <h1 class="slogan" >Hagamos que tu negocio tenga exito</h1>
+                    <div class="imagen">
+                        <a href="servicios.html">
+                            <img width="250" height="250" src="imagen/Premium Vector _ Search for new ideas, meeting and brainstorming_ business concept vector illustration.jpg" alt="Servicios">
+                            <h3>Nuestros Servicios</h3>
+                        </a>
+                        <a href="tips-negocios.html">
+                            <img width="250" height="250" src="imagen/Felices empleados jóvenes que se apoyan y se ayudan mutuamente _ Vector Premium.jpg" alt="Tips Negocios">
+                            <h3>Tips para Negocios</h3>
+                        </a>
+                        <a href="comentarios.html">
+                            <img width="250" height="250" src="imagen/Concepto móvil de marketing en redes sociales _ Vector Premium.jpg" alt="Comentarios">
+                            <h3>Comentarios</h3>
+                        </a>
                     </div>
-                
+                        <div class="video-index">
+                            <iframe width="460" height="315" src="https://www.youtube.com/embed/TV7Dj8lch4k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <p>Motivate</p>
+                            <img height="350" width="250" src="imagen/frase.png" alt="frase motivacional">
+                        </div>
+                    
+                </div>
             </div>
-
-           
-            
         </div>
             
 
