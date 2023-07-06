@@ -1,0 +1,72 @@
+<!-- Necesito capturar la edad del usuario -->
+<!-- Luego evaluar si es una persona mayor a 65 a;os -->
+<!-- Por medio de una funcion, que capture el valor de la edad -->
+<!-- y luego lo muestre en un div el resultado -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+    <div class="mb-3">
+      <label for="" class="form-label">Edad</label>
+      <input type="number"
+        class="form-control" name="edad" id="edad" aria-describedby="helpId" placeholder="">
+      <small id="helpId" class="form-text text-muted">Ingrese su edad aqui</small>
+    </div>
+    <button id="calcular" type="button" class="btn btn-primary">Calcular</button>
+  </main>
+
+    <div>
+        <h2 id="respuesta"></h2>    
+    </div>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+
+  <script>
+
+    let inputEdad = document.getElementById("edad");
+    let buttonCalcular = document.getElementById("calcular");
+    let respuesta = document.getElementById("respuesta");
+    buttonCalcular.addEventListener("click", calcularedad);
+
+    function calcularedad() {
+        let edad = Number(inputEdad.value);
+        if (edad > 65) {
+            // si se cumple la condicion true
+            respuesta.textContent = "Mi edad es mayor a 65 años"
+        } else {
+            // cuando no se cumple false
+            respuesta.textContent = "Mi edad es menor o igual a 65 años";
+        }
+    }
+    
+    
+  </script>
+</body>
+
+</html>
