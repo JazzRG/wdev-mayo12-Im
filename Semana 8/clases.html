@@ -1,0 +1,54 @@
+<script>
+    //modulo de codigo, librerias
+    //class palabra reservada
+    class inventario {
+        constructor (id, nombre, precio, color){
+            this.id = id;
+            this.nombre = nombre;
+            this.precio = precio;
+            this.color = color;
+        }
+    }
+
+
+</script>
+
+<script>    
+    // Syntax
+    // Definimos la clase
+    class MiClase {
+        teAmo(nombre) {
+            alert("te amo " + nombre + "!")
+        }
+    }
+
+    // Error! No existe `teAmo`
+    MiClase.teAmo();
+
+    // Creamos (instanciar) la clase
+    let miClase = new MiClase();
+
+    // Usamos la clase
+    miClase.teAmo("Jamin");
+
+    
+    class Inventario {
+        listaArticulos;
+        guardarArticulo(nombre, cantidad, precio, color) {            
+            this.listaArticulos = {
+                nombre: nombre,
+                cantidad: cantidad,
+                precio: precio,
+                color: color,
+            };
+        }
+        removerArticulo(nombre) {
+            this.listaArticulos = undefined;
+        }
+    }
+
+    let inventario = new Inventario();
+
+    inventario.guardarArticulo("Carro", 1, 1000, "rojo");
+    inventario.removerArticulo ("Carro");
+</script>
