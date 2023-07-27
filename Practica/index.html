@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div>
+          <h1 class="Titulo">Adivina el Numero</h1>
+        </div>
+      </header>
+    </div>
+
+    <div class="container">
+      <main>
+        <div class="mb-3">
+          <label for="" class="form-label"
+            >Escriba un numero del 0 al 100</label
+          >
+          <input
+            type="number"
+            class="form-control tamano-cuadro"
+            name="numero"
+            id="numero"
+            aria-describedby="helpId"
+            placeholder=""
+          />
+
+          <small id="helpId" class="form-text text-muted">Numero</small>
+        </div>
+        <div>
+          <a
+            name="adivinar"
+            id="adivinar"
+            class="btn btn-primary"
+            href="#"
+            role="button"
+            >ADIVINAR</a
+          >
+        </div>
+      </main>
+    </div>
+
+    <div class="container">
+      <footer>
+        <!-- place footer here -->
+      </footer>
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <div
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></div>
+
+    <div
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></div>
+  </body>
+  <script>
+    // ¿Qué quiere que este script haga?
+    // Adivinar un numero al azar del 1 al 100
+    // let con 2 numeros 1 adivina otro es el numero que definimoos
+
+    function adivinarnumero() {
+      // retorna un numero entre 0 y 1 aliatoriamente
+      // Math.random();
+      //
+      // Si quiere un número entre 0 y 100:
+      // Math.floor(Math.random() * 100)
+      //
+      // Math.floor(numero) lo que hace es redondiar el numero
+      // al entero menor, osea, 1.9 es redondeado a 1
+      //
+      // let num = Math.floor(); // retorna un valor como 0.234562345345623415
+      // let num2 = num * 100; // retorna un valor 23.45623453456...
+      // let num3 = Math.floor(num2); // retorna 23
+
+
+      let inpunumero= document.getElementById("numero")
+      let numeroGanador= 30;
+      
+      
+      
+    }
+  </script>
+</html>
