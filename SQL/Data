@@ -1,0 +1,12 @@
+/* cuantas Ordenes/
+Ordenado por el que mas ha comprado 
+hasta el que menos ha comprado */
+
+/* SELECT COUNT(OrderID) 
+FROM Orders */
+
+SELECT CustomerName, COUNT(OrderID)
+FROM Customers
+INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+GROUP BY CustomerName
+ORDER BY COUNT(OrderID) DESC;
