@@ -37,7 +37,7 @@ function ajustardatostabla(datos){
           <td>${objetoindividual.usuario}</td>
           <td>
           <a name="Editar" id="Editar" class="btn btn-success" role="button" onclick="mostrarEditarModal('${objetoindividual.id}','${objetoindividual.nombre}','${objetoindividual.descripcion}','${objetoindividual.tiempo}')">Editar</a>
-          ||
+          
           <a name="Eliminar" id="Eliminar" class="btn btn-danger" role="button" onclick="mostrarModal('${objetoindividual.id}')">Eliminar</a>
           </td>
         </tr>
