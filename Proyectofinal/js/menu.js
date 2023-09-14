@@ -15,6 +15,3 @@ menuprincipal.innerHTML += `<div class="col-md-3 mb-2 mb-md-0">
 
 // https://paginas-web-cr.com/ApiPHP/apis/ListaEstudiantes.php
 //paginas-web-cr.com/ApiPHP
-
-
-
