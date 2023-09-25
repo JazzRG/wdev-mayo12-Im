@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Crear Curso</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -16,111 +16,27 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
-
+    <link rel="stylesheet" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <script>
-      var url = "https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php";
-
-      $(document).ready(function () {
-        cargarDatosDeLosCursos();
-      });
-
-      function cargarDatosDeLosCursos() {
-        $.ajax({
-          type: "GET",
-          url: url,
-          dataType: "json",
-          success: function (response) {
-            ajustardatostabla(response.data);
-            // console.log(response);
-          },
-          error: function (xhr, textStatus, errorThrown) {
-            console.log("Error ", errorThrown);
-          },
-        });
-      }
-
-      //         function consultardatos(){
-      //     //fetch sirve para extraer, insertar modificar, eliminar consultardatos,
-      //     apiurl = apibase + apiconsultar ;
-      //     fetch(apiurl)
-      //     .then(estructura => estructura.json())
-      //     .then((datosrespuesta) => {
-      //             //ajustardatostabla
-      //             console.log(datosrespuesta.code)
-      //             console.log(datosrespuesta.data)
-      //             ajustardatostabla(datosrespuesta.data)
-      //         })
-      //     .catch(console.log);
-      // }
-
-      function ajustardatostabla(datos) {
-        console.log("datos" + datos);
-        for (const objetoindividual of datos) {
-          tablaresultado.innerHTML += `
-            <tr class="table-primary">
-              <td scope="row">${objetoindividual.id}</td>
-              <td>${objetoindividual.nombre}</td>
-              <td>${objetoindividual.descripcion}</td>
-              <td>${objetoindividual.tiempo}</td>
-              <td>${objetoindividual.usuario}</td>
-              <td>
-                  <a name="Editar" id="Editar" class="btn btn-success" role="button" onclick="mostrarEditarModal('${objetoindividual.id}','${objetoindividual.nombre}','${objetoindividual.descripcion}','${objetoindividual.tiempo}')">Editar</a>
-                  ||
-                  <a name="Eliminar" id="Eliminar" class="btn btn-danger" role="button" onclick="mostrarModal('${objetoindividual.id}')">Eliminar</a>
-              </td>                              
-            </tr>
-       `;
-        }
-      }
-
-      function crearCurso() {
-        var formulario = {
-          nombre: nombre,
-          descripcion: descripcion,
-          tiempo: tiempo,
-          usuario: "Brandon y Jaz",
-        };
-        // Asynchronous JavaScript and XML
-        $.ajax({
-          type: "POST",
-          url: url,
-          dataType: "json",
-          data: JSON.stringify(formulario),
-          success: (response) => {},
-          error: function (xhr, textStatus, errorThrown) {
-            console.error("Error al hacer POST al " + url, errorThrown);
-          },
-        });
-
-
-
-        //1.obtener los valores del input por medio de funciones de jquery, ya no se usa el documentgetelementid
-        //2.Crear un objeto donde se puedan agregar estos valores
-        //3.
-
-        // objeto = {
-        //     nombre: nombre
-        //     descripcion: descripcion
-        // }
-
-        $.ajax({
-          type: "method",
-          url: "url",
-          data: objeto,
-          dataType: "dataType",
-          success: function (response) {},
-        });
-      }
-    </script>
   </head>
 
   <body>
     <header>
-      <!-- place navbar here -->
+      <div id="menuprincipal"></div>
     </header>
+    <div class="container" id="card">
+      <div class="card" style="width: 18rem;" >
+       <img src="img/WhatsApp Image 2023-08-31 at 8.20.42 PM.jpeg" class="card-img-top" alt="...">
+       <div class="card-body">
+         <h5 class="card-title">Crear Curso</h5>
+         <p class="card-text">Ingrese sus datos para registrarse al curso</p>
+       </div>
+     </div>
+</div>
+
     <main>
+
+
       <div class="container">
         <form id="formulario">
           <div class="mb-3">
@@ -163,7 +79,7 @@
             <small id="helpId" class="form-text text-muted">Tiempo</small>
           </div>
           <button type="reset" class="btn btn-success">Reset</button>
-
+             
           <button type="submit" class="btn btn-info">Enviar</button>
         </form>
       </div>
@@ -210,9 +126,10 @@
         </div>
       </div>
     </main>
-    <footer>
-      <!-- place footer here -->
-    </footer>
+    <footer><p id="piepagina">&copy; 2023 Company, Inc. All rights reserved.</p></footer>
+
+    <script src="js/menu.js"></script>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -225,5 +142,7 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
+
+    <script src="js/crearcurso.js"></script>
   </body>
 </html>
