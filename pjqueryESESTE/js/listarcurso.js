@@ -1,32 +1,37 @@
-var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
-var apiconsultar = "ListaCurso.php";
-var apieliminar = "BorrarCursos.php";
-var apieditar = "ActualizarCursos.php";
+let apiBase = "https://paginas-web-cr.com/ApiPHP/apis/";
+let apiConsultar = "ListaCurso.php";
+let apiEliminar = "BorrarCursos.php";
+let apiEditar = "ActualizarCursos.php";
 
-const myModalEliminar = new bootstrap.Modal(document.getElementById('myModalEliminar'));
-const myModalEditar = new bootstrap.Modal(document.getElementById('myModalEditar'));
-const modalSuccess = new bootstrap.Modal(document.getElementById('modalSuccess'))
+const myModalEliminar = new bootstrap.Modal($("#myModalEliminar"));
+const myModalEditar = new bootstrap.Modal($("#myModalEditar"));
+const modalSuccess = new bootstrap.Modal($("#modalSuccess"));
 
-let tablaresultado = document.querySelector('#tablaresultado');
+let tablaResultado = document.querySelector("#tablaresultado");
 
-function consultardatos(){
-    //fetch sirve para extraer, insertar modificar, eliminar consultardatos, 
-    apiurl = apibase + apiconsultar ;
-    fetch(apiurl)
-    .then(estructura => estructura.json())
-    .then((datosrespuesta) => {
-            //ajustardatostabla
-            console.log(datosrespuesta.code) 
-            console.log(datosrespuesta.data) 
-            ajustardatostabla(datosrespuesta.data) 
-        })
-    .catch(console.log);
+function consultardatos() {
+  //fetch sirve para extraer, insertar modificar, eliminar consultardatos,
+  let apiUrl = apiBase + apiConsultar;
+
+
+
+  $.ajax({
+    url: apiUrl,
+    type: "GET",
+    success: function (datosRespuesta) {
+      console.log("datosRespuesta:", datosRespuesta);
+      ajustardatostabla(datosRespuesta.data);
+    },
+    error: function (error) {
+      console.log(error);
+    },
+  });
 }
 
-function ajustardatostabla(datos){
-    console.log("datos"+datos);
-    for (const objetoindividual of datos) {
-        tablaresultado.innerHTML += `         
+function ajustardatostabla(datos) {
+  console.log("datos" + datos);
+  for (const objetoindividual of datos) {
+    tablaResultado.innerHTML += `         
         <thead class="table-light">
         <caption>Lista de datos</caption>
         <tr>
@@ -42,93 +47,72 @@ function ajustardatostabla(datos){
           </td>
         </tr>
         `;
-    }
+  }
 }
 
+function mostrarModal(id) {
+  eliminandodato(id);
 
-function mostrarModal(id){
-    eliminandodato(id);
-
-    myModalEliminar.show();
-    
+  myModalEliminar.show();
 }
 
-function eliminandodato(id){
+function eliminandodato(id) {
+  let datosEnviar = {
+    id: id,
+  };
 
-    var datosEnviar = { 
-        "id":id 
-    }
-
-    apiurl = apibase + apieliminar ;
-    fetch(apiurl,
-        {
-            method:'POST',
-            body: JSON.stringify(datosEnviar)
-        })
-    .then(estructura => estructura.json())
+  apiurl = apiBase + apiEliminar;
+  fetch(apiurl, {
+    method: "POST",
+    body: JSON.stringify(datosEnviar),
+  })
+    .then((estructura) => estructura.json())
     .then((datosrespuesta) => {
-            completeDelete()
-        })
+      completeDelete();
+    })
     .catch(console.log);
 }
 
-function completeDelete(){
-    myModalEliminar.hide();
-    tablaresultado.innerHTML = ``;
-    consultardatos();
-    
+function completeDelete() {
+  myModalEliminar.hide();
+  tablaResultado.innerHTML = ``;
+  consultardatos();
 }
 
-function mostrarEditarModal(id, nombre, descripcion, tiempo){
-    document.getElementById('id').value = id;
-    document.getElementById('nombre').value = nombre;
-    document.getElementById('descripcion').value = descripcion;
-    document.getElementById('tiempo').value = tiempo;
-    myModalEditar.show();
+function mostrarEditarModal(id, nombre, descripcion, tiempo) {
+  document.getElementById("id").value = id;
+  document.getElementById("nombre").value = nombre;
+  document.getElementById("descripcion").value = descripcion;
+  document.getElementById("tiempo").value = tiempo;
+  myModalEditar.show();
 }
 
+formulario.addEventListener("submit", function (e) {
+  e.preventDefault();
+  //alert('salvadndo');
 
-formulario.addEventListener('submit', function(e)
-{
-e.preventDefault();
-//alert('salvadndo');
+  let datosEnviar = {
+    id: document.getElementById("id").value,
+    nombre: document.getElementById("nombre").value,
+    descripcion: document.getElementById("descripcion").value,
+    tiempo: document.getElementById("tiempo").value,
+    usuario: "Jaz y Bran",
+  };
 
-var datosEnviar = { 
-    "id":document.getElementById('id').value ,
-    "nombre":document.getElementById('nombre').value ,
-    "descripcion":document.getElementById('descripcion').value ,
-    "tiempo":document.getElementById('tiempo').value ,
-    "usuario":"Jaz y Bran"
-}
-
-apiurl = apibase + apieditar ;
-fetch(apiurl,
-    {
-        method:'POST',
-        body: JSON.stringify(datosEnviar)
+  apiurl = apiBase + apiEditar;
+  fetch(apiurl, {
+    method: "POST",
+    body: JSON.stringify(datosEnviar),
+  })
+    .then((estructura) => estructura.json())
+    .then((datosrespuesta) => {
+      alert("Salvado");
+      // modalSuccess.show()
+      completeInsert();
     })
-.then(estructura => estructura.json())
-.then((datosrespuesta) => {
-    alert("Salvado")
-        // modalSuccess.show()
-         completeInsert()
-    })
-.catch(console.log);
-
-
+    .catch(console.log);
 });
 
-function completeInsert(){
-
-}
-
-//crear una funcion parecida a la del submit
-//cambiar el metodo de insertar por el de editar
-//crear una funcion similar a completeDelete
-
-
-
-
-
+function completeInsert() {}
 
 consultardatos();
