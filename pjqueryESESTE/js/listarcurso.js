@@ -7,13 +7,11 @@ const myModalEliminar = new bootstrap.Modal($("#myModalEliminar"));
 const myModalEditar = new bootstrap.Modal($("#myModalEditar"));
 const modalSuccess = new bootstrap.Modal($("#modalSuccess"));
 
-let tablaResultado = document.querySelector("#tablaresultado");
+let tablaResultado = $("#tablaresultado");
 
 function consultardatos() {
   //fetch sirve para extraer, insertar modificar, eliminar consultardatos,
   let apiUrl = apiBase + apiConsultar;
-
-
 
   $.ajax({
     url: apiUrl,
@@ -30,10 +28,11 @@ function consultardatos() {
 
 function ajustardatostabla(datos) {
   console.log("datos" + datos);
+
   for (const objetoindividual of datos) {
-    tablaResultado.innerHTML += `         
-        <thead class="table-light">
-        <caption>Lista de datos</caption>
+    tablaResultado.html(
+      tablaResultado.html() +
+        `
         <tr>
           <td>${objetoindividual.id}Id</td>
           <td>${objetoindividual.nombre}</td>
@@ -46,7 +45,8 @@ function ajustardatostabla(datos) {
           <a name="Eliminar" id="Eliminar" class="btn btn-danger" role="button" onclick="mostrarModal('${objetoindividual.id}')">Eliminar</a>
           </td>
         </tr>
-        `;
+        `
+    );
   }
 }
 
@@ -61,58 +61,64 @@ function eliminandodato(id) {
     id: id,
   };
 
-  apiurl = apiBase + apiEliminar;
-  fetch(apiurl, {
-    method: "POST",
-    body: JSON.stringify(datosEnviar),
-  })
-    .then((estructura) => estructura.json())
-    .then((datosrespuesta) => {
-      completeDelete();
-    })
-    .catch(console.log);
+  let apiurl = apiBase + apiEliminar;
+
+  $.ajax({
+    type: "POST",
+    url: apiurl,
+    data: JSON.stringify(datosEnviar),
+    dataType: "json",
+    success: (datosrespuesta) => {
+      refrescar();
+    },
+    error: function (error) {
+      console.error(error);
+    },
+  });
 }
 
-function completeDelete() {
+function refrescar() {
   myModalEliminar.hide();
-  tablaResultado.innerHTML = ``;
+  tablaResultado.html(``);
   consultardatos();
 }
 
 function mostrarEditarModal(id, nombre, descripcion, tiempo) {
-  document.getElementById("id").value = id;
-  document.getElementById("nombre").value = nombre;
-  document.getElementById("descripcion").value = descripcion;
-  document.getElementById("tiempo").value = tiempo;
+  $("#id").val(id);
+  $("#nombre").val(nombre);
+  $("#descripcion").val(descripcion);
+  $("#tiempo").val(tiempo);
   myModalEditar.show();
 }
 
-formulario.addEventListener("submit", function (e) {
+$("#formulario").on("submit", function (e) {
   e.preventDefault();
   //alert('salvadndo');
 
   let datosEnviar = {
-    id: document.getElementById("id").value,
-    nombre: document.getElementById("nombre").value,
-    descripcion: document.getElementById("descripcion").value,
-    tiempo: document.getElementById("tiempo").value,
+    id: $("#id").val(),
+    nombre: $("#nombre").val(),
+    descripcion: $("#descripcion").val(),
+    tiempo: $("#tiempo").val(),
     usuario: "Jaz y Bran",
   };
 
-  apiurl = apiBase + apiEditar;
-  fetch(apiurl, {
-    method: "POST",
-    body: JSON.stringify(datosEnviar),
-  })
-    .then((estructura) => estructura.json())
-    .then((datosrespuesta) => {
+  let apiurl = apiBase + apiEditar;
+
+  $.ajax({
+    type: "POST",
+    url: apiurl,
+    data: JSON.stringify(datosEnviar),
+    dataType: "json",
+    success: (datosrespuesta) => {
       alert("Salvado");
       // modalSuccess.show()
-      completeInsert();
-    })
-    .catch(console.log);
+      refrescar();
+    },
+    error: function (error) {
+      console.error(error);
+    },
+  });
 });
-
-function completeInsert() {}
 
 consultardatos();
