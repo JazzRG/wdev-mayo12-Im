@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cursos } from './model/cursos';
-
+import { Respuestacursos } from './models/respuestacursos';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -19,23 +19,32 @@ export class AppComponent implements OnInit {
   //   { id : "5", nombre : "html5", descripcion : "555", tiempo : "50", usuarios : "", }
   // ]
 
+
   arregloDatos: Cursos[] = [];
 
-  constructor (private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
+
+
   ngOnInit(): void {
     this.obtenerDatos();
   }
+
+
+
+
   obtenerDatos() {
     const url = 'https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php';
 
-    this.http.get<Cursos[]>(url).subscribe(
+
+
+    this.http.get<Respuestacursos>(url).subscribe(
       (response) => {
-        // this.arregloDatos =
-        console.log(response);
+        this.arregloDatos = response.data;
+        console.log(response.data);
       },
       (error) => {
         console.error('Error en la carga de datos', error);
       }
-    )
+    );
   }
 }
