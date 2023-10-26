@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 //dr necetita el cliente https
 
 import { HttpClientModule } from '@angular/common/http';
+import { GrupoComponent } from './grupo/grupo.component';
+import { ListarcursoComponent } from './listarcurso/listarcurso.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GrupoComponent,
+    ListarcursoComponent
   ],
   imports: [
     BrowserModule,
