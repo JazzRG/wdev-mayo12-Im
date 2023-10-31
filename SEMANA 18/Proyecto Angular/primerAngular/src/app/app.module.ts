@@ -9,12 +9,16 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GrupoComponent } from './grupo/grupo.component';
 import { ListarcursoComponent } from './listarcurso/listarcurso.component';
+import { EstudianteComponent } from './estudiante/estudiante.component';
+import { ProfesorComponent } from './profesor/profesor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GrupoComponent,
-    ListarcursoComponent
+    ListarcursoComponent,
+    EstudianteComponent,
+    ProfesorComponent
   ],
   imports: [
     BrowserModule,
